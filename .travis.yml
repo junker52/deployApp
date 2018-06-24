@@ -10,7 +10,7 @@ cache:
   directories:
     - '$HOME/.m2/repository'
 script:
-  - ./mvnw clean install -B
+  - mvn clean install -B
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export TAG=`if [ "$TRAVIS_BRANCH" == "deployapp" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
